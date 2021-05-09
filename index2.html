@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: green;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+font-size : 19px
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+</head>
+<body>
+<h2 style = 'color: red; text-align: center; '>Project No. - 2 => Accordion</h2>
+<hr style = 'border-color: green; border-width: 2px;'>
+<br>
+<button class="accordion">First Section</button>
+<div class="panel">
+  <p>My name is <b style = 'color : red;'>Nahid Hasan Limon</b></p>
+</div>
+<br>
+<button class="accordion">Second Section</button>
+<div class="panel">
+  <p>I am a student</p>
+</div>
+<br>
+<button class="accordion">Third Section</button>
+<div class="panel">
+  <p>This is a JavaScript project.</p>
+</div>
+<br>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
